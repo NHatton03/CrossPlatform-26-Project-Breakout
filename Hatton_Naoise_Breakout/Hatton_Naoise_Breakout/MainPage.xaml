@@ -1,8 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hatton_Naoise_Breakout.MainPage">
+             x:Class="Hatton_Naoise_Breakout.MainPage"
+             Title="Breakout"
+             BackgroundColor="#1E1E2E">
+    <!-- Game Area -->
+    <Grid RowDefinitions="Auto,*,Auto"
+        Padding="10"
+        RowSpacing="10">
 
-    
+        <!-- Header: score, high score, time left -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,*,*">
+            <Label x:Name="ScoreLabel"
+                 Grid.Column="0"
+                 Text="Score: 0" />
+            
+            <Label x:Name="HighScoreLabel"
+                 Grid.Column="1"
+                 Text="Best: 0" />
+            
+            <Label x:Name="TimeLabel"
+                 Grid.Column="2"
+                 Text="Time: 60" />
+            
+        </Grid>
+
+        <!-- Play area. Bricks will be added here from C#. -->
+        <AbsoluteLayout x:Name="GameArea"
+                      Grid.Row="1"
+                      BackgroundColor="Black"
+                      IsClippedToBounds="True">
+
+            <BoxView x:Name="Paddle"
+                   Color="White"
+                   CornerRadius="4"
+                   AbsoluteLayout.LayoutBounds="510,350,100,15"
+                   ZIndex="1"/>
+
+            <BoxView x:Name="Ball"
+                   Color="Yellow"
+                   CornerRadius="8"
+                   AbsoluteLayout.LayoutBounds="553,335,16,16"
+                   ZIndex="2" />
+
+            <Label x:Name="GameOverLabel"
+                 IsVisible="False"
+                 Opacity="0"
+                 ZIndex="10"
+                 TextColor="White"
+                 FontSize="32"
+                 FontAttributes="Bold"
+                 HorizontalTextAlignment="Center"
+                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                 AbsoluteLayout.LayoutBounds="0.5,0.5,AutoSize,AutoSize" />
+        </AbsoluteLayout>
+
+        <!-- Controls -->
+        <HorizontalStackLayout Grid.Row="2"
+                             HorizontalOptions="Center"
+                             Spacing="20">
+            <Button x:Name="LeftButton"
+                  Text="◀"
+                  Pressed="LeftButton_Pressed"/>
+            <Button x:Name="StartButton"
+                  Text="Start"
+                  WidthRequest="150"
+                  Clicked="StartButton_Clicked"/>
+            <Button x:Name="RightButton"
+                  Text="▶"
+                  Pressed="RightButton_Pressed"/>
+        </HorizontalStackLayout>
+    </Grid>
+
+
 
 </ContentPage>
