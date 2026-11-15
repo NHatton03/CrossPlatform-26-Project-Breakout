@@ -1,2 +1,2 @@
-# CrossPlatform-26-Project-Breakout
-A Project for Cross Platform and Application Development module 2026
+# CrossPlatform 2026 Breakout project.
+## A Breakout game with a menu, settings and data saving.
