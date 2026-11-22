@@ -34,13 +34,13 @@
             <BoxView x:Name="Paddle"
                    Color="White"
                    CornerRadius="4"
-                   AbsoluteLayout.LayoutBounds="510,350,100,15"
+                   AbsoluteLayout.LayoutBounds="0,0,100,15"
                    ZIndex="1"/>
 
             <BoxView x:Name="Ball"
                    Color="Yellow"
                    CornerRadius="8"
-                   AbsoluteLayout.LayoutBounds="553,335,16,16"
+                   AbsoluteLayout.LayoutBounds="0,0,16,16"
                    ZIndex="2" />
 
             <Label x:Name="GameOverLabel"
@@ -61,14 +61,13 @@
                              Spacing="20">
             <Button x:Name="LeftButton"
                   Text="◀"
-                  Pressed="LeftButton_Pressed"/>
-            <Button x:Name="StartButton"
-                  Text="Start"
-                  WidthRequest="150"
-                  Clicked="StartButton_Clicked"/>
+                  Pressed="LeftButton_Pressed"
+                   Released="LeftButton_Released"/>
+           
             <Button x:Name="RightButton"
                   Text="▶"
-                  Pressed="RightButton_Pressed"/>
+                  Pressed="RightButton_Pressed"
+                  Released="RightButton_Released"/>
         </HorizontalStackLayout>
     </Grid>
 
